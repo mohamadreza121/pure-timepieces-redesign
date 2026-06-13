@@ -1,0 +1,501 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+
+  --color-obsidian: #030303;
+  --color-onyx: #070707;
+  --color-carbon: #0d0d0d;
+  --color-charcoal: #171717;
+
+  --color-platinum: #f1f1ee;
+  --color-ivory: #e5e5e1;
+  --color-silver: #c5c6c3;
+  --color-steel: #8d8f8d;
+  --color-mutedsteel: #5d605e;
+
+  /* Kept for compatibility with existing components */
+  --color-champagne: #d4d4cf;
+  --color-oldgold: #9a9a95;
+  --color-mutedgold: #666763;
+  --color-oxblood: #111111;
+  --color-burgundy: #0b0b0b;
+
+  --color-pureblack: #020202;
+  --color-vaultblack: #060606;
+  --color-softblack: #0f0f0f;
+}
+
+:root {
+  color-scheme: dark;
+
+  --background: #030303;
+  --foreground: #f1f1ee;
+  --muted: #969793;
+  --line: rgba(255, 255, 255, 0.09);
+
+  --gold: #d4d4cf;
+  --gold-soft: rgba(212, 212, 207, 0.1);
+
+  --surface-1: rgba(255, 255, 255, 0.025);
+  --surface-2: rgba(255, 255, 255, 0.05);
+  --surface-3: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 50% -12%, rgba(255, 255, 255, 0.055), transparent 34rem),
+    linear-gradient(180deg, #030303 0%, #070707 52%, #030303 100%);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.luxury-border {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.luxury-card {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015)),
+    #080808;
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(18px);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(
+    105deg,
+    #ffffff 0%,
+    #deded9 38%,
+    #9ea09d 68%,
+    #efefec 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.noise::before {
+  pointer-events: none;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.luxury-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+.watch-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.watch-shine::after {
+  content: "";
+  position: absolute;
+  inset: -60% auto auto -80%;
+  width: 55%;
+  height: 220%;
+  transform: rotate(24deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 800ms ease;
+}
+
+.watch-shine:hover::after {
+  left: 130%;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.032) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 72%);
+}
+
+/* Editorial hero */
+
+.editorial-hero {
+  background:
+    radial-gradient(circle at 72% 43%, rgba(255, 255, 255, 0.085), transparent 19rem),
+    radial-gradient(circle at 72% 43%, rgba(150, 154, 151, 0.055), transparent 34rem),
+    linear-gradient(112deg, #050505 0%, #080808 48%, #040404 100%);
+}
+
+.editorial-hero::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.22), transparent 44%, rgba(0, 0, 0, 0.08)),
+    radial-gradient(circle at center, transparent 34%, rgba(0, 0, 0, 0.38) 100%);
+}
+
+.hero-spotlight::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -5;
+  background: radial-gradient(
+    circle at var(--spotlight-x, 70%) var(--spotlight-y, 42%),
+    rgba(255, 255, 255, 0.055),
+    transparent 15rem
+  );
+  mix-blend-mode: screen;
+  opacity: 0.72;
+  transition: opacity 220ms ease;
+}
+
+.hero-fine-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 92px 92px;
+  mask-image: radial-gradient(circle at 65% 44%, black 0%, transparent 72%);
+}
+
+.hero-studio-halo {
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(190, 194, 190, 0.09) 28%, rgba(255, 255, 255, 0.025) 48%, transparent 70%);
+  filter: blur(8px);
+  opacity: 0.8;
+}
+
+.hero-mechanical-ring {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    radial-gradient(circle, transparent 51%, rgba(255, 255, 255, 0.02) 52%, transparent 66%),
+    rgba(255, 255, 255, 0.008);
+  box-shadow:
+    inset 0 0 90px rgba(255, 255, 255, 0.025),
+    0 0 90px rgba(255, 255, 255, 0.02);
+}
+
+.hero-gear-ring {
+  opacity: 0.23;
+  background: repeating-conic-gradient(
+    from 0deg,
+    transparent 0deg 8deg,
+    rgba(225, 226, 222, 0.18) 8deg 10deg
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 24px),
+    #000 calc(100% - 24px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 24px),
+    #000 calc(100% - 24px)
+  );
+}
+
+.hero-watch-frame::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  z-index: -1;
+  width: 72%;
+  height: 8%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.85);
+  filter: blur(24px);
+}
+
+.hero-watch-frame::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 7% 5%;
+  z-index: -1;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  filter: blur(48px);
+}
+
+.hero-watch-image {
+  filter:
+    drop-shadow(0 30px 48px rgba(0, 0, 0, 0.72))
+    drop-shadow(0 0 24px rgba(255, 255, 255, 0.09));
+}
+
+
+.scroll-dial::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 35%;
+  transform-origin: 50% 100%;
+  background: rgba(255, 255, 255, 0.7);
+  animation: secondHand 1.8s linear infinite;
+}
+
+.scroll-dial::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 4px;
+  width: 4px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.24);
+}
+
+/* Brand rail */
+
+.brand-rail-mask {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 7%,
+    black 93%,
+    transparent
+  );
+}
+
+.brand-marquee {
+  animation: brandMarquee 44s linear infinite;
+}
+
+.brand-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Legacy classes kept for existing sections */
+
+.black-vault-bg {
+  background:
+    radial-gradient(circle at 70% 36%, rgba(255, 255, 255, 0.07), transparent 25rem),
+    linear-gradient(180deg, #030303 0%, #070707 44%, #020202 100%);
+}
+
+.vault-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 84px 84px;
+  mask-image: radial-gradient(circle at 58% 42%, black 0%, transparent 68%);
+}
+
+.vault-dial {
+  background:
+    repeating-conic-gradient(from 0deg, rgba(232, 228, 220, 0.12) 0deg 1deg, transparent 1deg 10deg),
+    radial-gradient(circle, transparent 58%, rgba(255, 255, 255, 0.05) 59%, transparent 60%);
+  mask-image: radial-gradient(circle, transparent 0 58%, black 59% 63%, transparent 64%);
+  animation: vaultDial 28s linear infinite;
+}
+
+.hero-watch-shine::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: -18% auto auto -48%;
+  z-index: 25;
+  width: 22%;
+  height: 132%;
+  transform: rotate(24deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.24),
+    rgba(210, 210, 204, 0.12),
+    transparent
+  );
+  filter: blur(10px);
+  animation: heroWatchSweep 5.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.mechanical-stage {
+  position: absolute;
+  inset: 0;
+}
+
+.gear {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.gear-lg {
+  inset: 0;
+  opacity: 0.28;
+}
+
+.gear-lg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-conic-gradient(
+    from 0deg,
+    transparent 0deg 8deg,
+    rgba(232, 228, 220, 0.13) 8deg 11deg
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 22px),
+    #000 calc(100% - 22px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 22px),
+    #000 calc(100% - 22px)
+  );
+}
+
+.gear-lg::after {
+  content: "";
+  position: absolute;
+  inset: 10%;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.gear-center-ring {
+  position: absolute;
+  inset: 22%;
+  border-radius: 9999px;
+  border: 1px solid rgba(232, 228, 220, 0.07);
+  opacity: 0.4;
+}
+
+/* Animations */
+
+@keyframes heroWatchSweep {
+  0%,
+  34% {
+    left: -48%;
+    opacity: 0;
+  }
+
+  46% {
+    opacity: 1;
+  }
+
+  68%,
+  100% {
+    left: 122%;
+    opacity: 0;
+  }
+}
+
+
+@keyframes vaultDial {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes brandMarquee {
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes secondHand {
+  from {
+    transform: translate(-50%, -100%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -100%) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-spotlight::before {
+    opacity: 0.38;
+  }
+
+  .hero-fine-grid {
+    background-size: 58px 58px;
+  }
+
+  .hero-mechanical-ring {
+    opacity: 0.72;
+  }
+
+  .brand-rail-mask {
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      black 4%,
+      black 96%,
+      transparent
+    );
+  }
+}

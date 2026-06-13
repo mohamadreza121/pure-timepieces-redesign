@@ -1,0 +1,25 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="1100" fill="#050505"/>
+<rect x="70" y="70" width="760" height="960" rx="70" fill="url(#bg)" stroke="rgba(255,255,255,.12)"/>
+<ellipse cx="450" cy="548" rx="255" ry="310" fill="rgba(0,0,0,.42)"/>
+<path d="M370 95h160l46 260H324l46-260Z" fill="#c6c8c9" opacity=".86"/>
+<path d="M324 745h252l-46 260H370l-46-260Z" fill="#c6c8c9" opacity=".86"/>
+<circle cx="450" cy="550" r="248" fill="#c6c8c9"/>
+<circle cx="450" cy="550" r="210" fill="#09090b" stroke="#d7bd7f" stroke-width="10"/>
+<circle cx="450" cy="550" r="176" fill="url(#dial)"/>
+<path d="M450 398v152l92 64" stroke="#d7bd7f" stroke-width="12" stroke-linecap="round"/>
+<path d="M450 550l-72 86" stroke="#f8f1da" stroke-width="8" stroke-linecap="round"/>
+<circle cx="450" cy="550" r="14" fill="#d7bd7f"/>
+<g fill="#d7bd7f">
+<rect x="444" y="392" width="12" height="40" rx="6"/>
+<rect x="444" y="668" width="12" height="40" rx="6"/>
+<rect x="568" y="544" width="40" height="12" rx="6"/>
+<rect x="292" y="544" width="40" height="12" rx="6"/>
+</g>
+<text x="450" y="498" text-anchor="middle" fill="rgba(255,255,255,.62)" font-family="Georgia" font-size="34">PURE</text>
+<text x="450" y="810" text-anchor="middle" fill="rgba(255,255,255,.22)" font-family="Arial" font-size="24">PLACEHOLDER WATCH IMAGE</text>
+<defs>
+<radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(245 140) rotate(55) scale(900 920)"><stop stop-color="#e0e0e0" stop-opacity=".34"/><stop offset=".55" stop-color="#111216"/><stop offset="1" stop-color="#050505"/></radialGradient>
+<radialGradient id="dial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(390 430) rotate(75) scale(300)"><stop stop-color="rgba(255,255,255,.15)"/><stop offset="1" stop-color="#050505"/></radialGradient>
+</defs>
+</svg>
