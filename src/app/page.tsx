@@ -1,27 +1,29 @@
 import { Hero } from "@/components/sections/Hero";
-import { PrivateAccessCTA } from "@/components/sections/PrivateAccessCTA";
-import { BrandRail } from "@/components/sections/BrandRail";
-import { FeaturedProducts } from "@/components/sections/FeaturedProducts";
-import { VaultShowcase } from "@/components/sections/VaultShowcase";
-import { SellTradeCTA } from "@/components/sections/SellTradeCTA";
-import { DreamWatchCTA } from "@/components/sections/DreamWatchCTA";
-import { AuthenticationProcess } from "@/components/sections/AuthenticationProcess";
-import { ReviewWall } from "@/components/sections/ReviewWall";
-import { AboutPreview } from "@/components/sections/AboutPreview";
+import { PrivateAccessIntro } from "@/components/sections/PrivateAccessIntro";
+import { SelectedVault } from "@/components/sections/SelectedVault";
+import { BrandArchive } from "@/components/sections/BrandArchive";
+import { SourcingExperience } from "@/components/sections/SourcingExperience";
+import { CinematicStory } from "@/components/sections/CinematicStory";
+import { AuthenticationAtelier } from "@/components/sections/AuthenticationAtelier";
+import { SellTradeEditorial } from "@/components/sections/SellTradeEditorial";
+import { CollectorTestimony } from "@/components/sections/CollectorTestimony";
+import { JournalPreview } from "@/components/sections/JournalPreview";
+import { FinalPrivateSearchCTA } from "@/components/sections/FinalPrivateSearchCTA";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <PrivateAccessCTA />
-      <BrandRail />
-      <FeaturedProducts />
-      <VaultShowcase />
-      <SellTradeCTA />
-      <DreamWatchCTA />
-      <AuthenticationProcess />
-      <ReviewWall />
-      <AboutPreview />
+      <PrivateAccessIntro />
+      <SelectedVault />
+      <BrandArchive />
+      <SourcingExperience />
+      <CinematicStory />
+      <AuthenticationAtelier />
+      <SellTradeEditorial />
+      <CollectorTestimony />
+      <JournalPreview />
+      <FinalPrivateSearchCTA />
     </>
   );
 }

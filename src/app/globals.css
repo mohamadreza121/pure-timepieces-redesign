@@ -278,6 +278,9 @@ button {
     drop-shadow(0 0 24px rgba(255, 255, 255, 0.09));
 }
 
+.watch-float {
+  animation: watchFloat 6.8s ease-in-out infinite;
+}
 
 .scroll-dial::before {
   content: "";
@@ -442,6 +445,16 @@ button {
   }
 }
 
+@keyframes watchFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
 @keyframes vaultDial {
   to {
@@ -495,6 +508,78 @@ button {
       transparent,
       black 4%,
       black 96%,
+      transparent
+    );
+  }
+}
+
+/* Homepage v1 */
+
+.homepage-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px);
+  background-size: 92px 92px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 78%);
+}
+
+.vault-light-sweep {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-115%) skewX(-18deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.01) 36%,
+    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0.01) 64%,
+    transparent 100%
+  );
+  transition:
+    transform 1200ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 350ms ease;
+}
+
+.group:hover .vault-light-sweep {
+  opacity: 0.72;
+  transform: translateX(115%) skewX(-18deg);
+}
+
+.brand-archive-mask {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+}
+
+.brand-archive-track {
+  animation: brandArchive 68s linear infinite;
+}
+
+.brand-archive-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes brandArchive {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 767px) {
+  .homepage-grid {
+    background-size: 58px 58px;
+  }
+
+  .brand-archive-mask {
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      black 2%,
+      black 98%,
       transparent
     );
   }

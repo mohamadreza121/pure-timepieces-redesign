@@ -12,19 +12,12 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 24);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 24);
 
     handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true
-    });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -50,9 +43,7 @@ export function Navbar() {
           <span className="font-display text-xl tracking-[-0.03em] text-white/42 transition duration-300 group-hover:text-white/70">
             PT
           </span>
-
           <span className="h-5 w-px bg-white/[0.14]" />
-
           <span className="font-display text-[1.55rem] tracking-[-0.025em] text-white/92 transition duration-300 group-hover:text-white">
             Pure Timepieces
           </span>
@@ -63,10 +54,9 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="group relative py-2 text-[1.05rem] font-medium tracking-[-0.015em] text-white/66 transition duration-300 hover:text-white xl:text-[1.12rem]"
+              className="group relative py-2 text-[0.98rem] font-medium tracking-[-0.015em] text-white/66 transition duration-300 hover:text-white xl:text-[1.05rem]"
             >
               {item.label}
-
               <span className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-white/65 transition-transform duration-300 group-hover:scale-x-100" />
             </Link>
           ))}
@@ -79,51 +69,26 @@ export function Navbar() {
           onClick={() => setIsOpen((current) => !current)}
           className="grid h-11 w-11 place-items-center border border-white/[0.12] bg-black/20 text-white transition hover:border-white/25 hover:bg-white/[0.05] lg:hidden"
         >
-          {isOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{
-              opacity: 0,
-              height: 0
-            }}
-            animate={{
-              opacity: 1,
-              height: "auto"
-            }}
-            exit={{
-              opacity: 0,
-              height: 0
-            }}
-            transition={{
-              duration: 0.35,
-              ease: [0.22, 1, 0.36, 1]
-            }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden border-t border-white/[0.07] bg-black/92 backdrop-blur-2xl lg:hidden"
           >
             <div className="grid px-4 py-6 sm:px-6">
               {siteConfig.nav.map((item, index) => (
                 <motion.div
                   key={item.href}
-                  initial={{
-                    opacity: 0,
-                    y: 12
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0
-                  }}
-                  transition={{
-                    duration: 0.35,
-                    delay: index * 0.045
-                  }}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: index * 0.045 }}
                 >
                   <Link
                     href={item.href}
@@ -131,7 +96,6 @@ export function Navbar() {
                     className="flex items-center justify-between border-b border-white/[0.07] py-5 font-display text-3xl tracking-[-0.03em] text-white/80 transition hover:text-white"
                   >
                     {item.label}
-
                     <span className="font-sans text-xs tracking-[0.24em] text-white/25">
                       {String(index + 1).padStart(2, "0")}
                     </span>

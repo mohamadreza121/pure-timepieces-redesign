@@ -74,7 +74,7 @@ export function Hero() {
       <div className="luxury-noise absolute inset-0 -z-10 opacity-[0.035]" />
 
       <Container className="relative z-10 grid min-h-[calc(100svh-7rem)] max-w-none items-stretch gap-0 px-3 pb-16 sm:px-5 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:px-6 lg:pb-14 xl:px-8 2xl:px-10">
-        <div className="relative z-10 min-w-0 self-end overflow-visible pb-28 sm:pb-32 lg:pb-40">
+        <div className="relative z-10 min-w-0 self-end overflow-visible pb-28 sm:pb-32 lg:pb-41">
           <div className="w-full lg:w-[72vw] xl:w-[70vw] 2xl:w-[68vw]">
             <h1 className="font-display text-[clamp(6.25rem,8.6vw,12.3rem)] font-medium leading-[0.755] tracking-[-0.072em] text-white">
               {headlineLines.map((line, index) => (
@@ -109,7 +109,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative z-30 min-w-0 self-center min-h-[29rem] md:min-h-[38rem] lg:min-h-[43rem]">
+        <div className="relative z-30 min-h-[29rem] min-w-0 self-center md:min-h-[38rem] lg:min-h-[43rem]">
           <div className="hero-studio-halo absolute left-1/2 top-1/2 h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full md:h-[34rem] md:w-[34rem] lg:h-[39rem] lg:w-[39rem]" />
 
           <motion.div
@@ -133,33 +133,31 @@ export function Hero() {
             }}
             className="absolute left-[calc(50%-12px)] top-[calc(46%-4px)] h-[43rem] w-[43rem] -translate-x-1/2 -translate-y-1/2 md:h-[50rem] md:w-[50rem] lg:top-[calc(45%-4px)] lg:h-[58rem] lg:w-[58rem] xl:h-[63rem] xl:w-[63rem]"
           >
-            {/* rotating bezel / outer layer */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{
-                duration: 180,
+                duration: 120,
                 repeat: Infinity,
                 ease: "linear"
               }}
-              className="absolute inset-0"
+              className="absolute -inset-[2px]"
             >
               <Image
                 src={HERO_ROTATING_RING}
                 alt=""
                 fill
-                sizes="(min-width: 1024px) 34rem, (min-width: 768px) 30rem, 24rem"
+                sizes="(min-width: 1280px) 63rem, (min-width: 1024px) 58rem, (min-width: 768px) 50rem, 43rem"
                 className="pointer-events-none select-none object-contain opacity-[0.26] brightness-[0.92] contrast-125"
               />
             </motion.div>
 
-            {/* static dial / top layer */}
             <div className="absolute inset-[10.5%]">
               <Image
                 src={HERO_STATIC_DIAL}
                 alt=""
                 fill
-                sizes="(min-width: 1024px) 26rem, (min-width: 768px) 22rem, 18rem"
-                className="pointer-events-none select-none object-contain opacity-[0.12] brightness-110 contrast-125"
+                sizes="(min-width: 1280px) 50rem, (min-width: 1024px) 46rem, (min-width: 768px) 40rem, 34rem"
+                className="pointer-events-none select-none object-contain rotate-90 opacity-[0.12] brightness-110 contrast-125"
               />
             </div>
           </motion.div>
@@ -231,7 +229,7 @@ export function Hero() {
               alt=""
               fill
               sizes="24px"
-              className="pointer-events-none select-none object-contain opacity-[0.42]"
+              className="pointer-events-none select-none object-contain rotate-90 opacity-[0.42]"
             />
           </span>
         </span>
