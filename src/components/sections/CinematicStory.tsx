@@ -12,7 +12,7 @@ export function CinematicStory() {
         poster="/images/watch-detail-black.svg"
         className="absolute inset-0 h-full w-full object-cover opacity-58"
       >
-        <source src="/videos/atelier-film.mp4" type="video/mp4" />
+        <source src="/videos/atelier-film1.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.34)_52%,rgba(0,0,0,0.7)_100%)]" />
