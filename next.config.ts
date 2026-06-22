@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
+    qualities: [75, 90, 95],
     remotePatterns: [
       {
         protocol: "https",
@@ -14,8 +15,9 @@ const nextConfig: NextConfig = {
       }
     ]
   },
+
   experimental: {
-    optimizePackageImports: ["lucide-react", "motion", "gsap"]
+    optimizePackageImports: ["motion", "gsap"]
   }
 };
 
